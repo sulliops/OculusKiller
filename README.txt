@@ -13,8 +13,8 @@ THE EXE PROGRAM IS SIMPLY A WRAPPER FOR THE BATCH FILE, AND IT WILL NOT FUNCTION
 
 ==================================================
 
-Please make sure you've downloaded this program directly from https://downloads.sulliops.co/downloads/OculusKiller/OculusKiller.zip
-Files from anywhere other than https://downloads.sulliops.co/downloads/OculusKiller/OculusKiller.zip, there's a chance the files are not genuine and could contain malware!
+Please make sure you've downloaded this program directly from https://github.com/sulliops/OculusKiller
+Files from anywhere other than https://github.com/sulliops/OculusKiller, there's a chance the files are not genuine and could contain malware!
 
 Report malicious downloads to: me@sulliops.co, https://sulliops.co/#contact
 Questions? Contact me at: me@sulliops.co, https://sulliops.co/#contact
