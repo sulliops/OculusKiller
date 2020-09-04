@@ -1,0 +1,6 @@
+==================================================
+
+DO NOT MOVE OR REMOVE "OculusKiller.bat"!!!!
+THE EXE PROGRAM IS SIMPLY A WRAPPER FOR THE BATCH FILE, AND IT WILL NOT FUNCTION IF THE BATCH FILE IS NOT IN THE SAME LOCATION!!!!
+
+==================================================
