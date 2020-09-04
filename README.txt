@@ -8,7 +8,7 @@ Created by Owen Sullivan, https://sulliops.co
 Oculus Killer is a simple program designed to kill all Oculus processes at once, invalidating the need to open Task Manager and kill each process individually.
 Oculus Killer will automatically request elevation, as OVR Service Launcher cannot be killed without administrator rights.
 
-DO NOT MOVE OR REMOVE "OculusKiller.bat"!!!!
+DO NOT MOVE, REMOVE, OR RENAME "OculusKiller.bat" OR "OculusKiller.exe"!!!!
 THE EXE PROGRAM IS SIMPLY A WRAPPER FOR THE BATCH FILE, AND IT WILL NOT FUNCTION IF THE BATCH FILE IS NOT IN THE SAME LOCATION!!!!
 
 ==================================================
