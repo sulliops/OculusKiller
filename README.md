@@ -34,7 +34,7 @@ PS C:\> Install-Module ps2exe
 
 PowerShell may ask you to confirm this installation and the addition of a new repository. Simply entering `Y` to both will continue the installation.
 
-**Compiling Oculus Killer:**
+**Compiling with PS2EXE:**
 
 ```powershell
 PS C:\> Invoke-ps2exe [PATH_TO_OCULUS_KILLER_PS1] [PATH_TO_OUTPUT_EXE] -iconFile [PATH_TO_OCULUS_KILLER_ICO] -noConsole -requireAdmin
