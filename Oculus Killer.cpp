@@ -248,8 +248,7 @@ int displayMessageBox(const bool &anyProcessesFound, const bool &processKillFail
 
             return msgboxID; // Generate MessageBox
 
-        }
-        else { // If there were no termination failures
+        } else { // If there were no termination failures
 
             // Create MessageBox with success message and informational icon
             int msgboxID = MessageBox(NULL, (LPCWSTR)L"Oculus Killer terminated all running Oculus processes successfully.", (LPCWSTR)L"Oculus Killer", MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
