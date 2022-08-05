@@ -47,7 +47,7 @@ using WindowsKillLibrary::SIGNAL_TYPE_CTRL_BREAK;
 int displayMessageBox(const bool& anyProcessesFound, const bool& processKillFailure); // Display winapi MessageBox based on existence and/or success of process termination
 
 // Main
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
 
     // Vector to hold process names to be iterated through and killed
     std::vector<std::wstring> processesToKill = { L"OVRServiceLauncher.exe", L"OVRRedir.exe", L"OVRServer_x64.exe" }; // Formatted as wstring for use with szExeFile
