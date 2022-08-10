@@ -30,7 +30,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\Downloads\Oculus Killer.ico">
+    <Image Include="Oculus Killer.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -1,5 +1,5 @@
 // TITLE: Oculus Killer
-// VERSION: 3.0.0
+// VERSION: 3.1.0
 // CREATED BY: Owen Sullivan
 // PURPOSE: This program forces the termination of Oculus software processes that run in the background after the Oculus software is exited.
 
@@ -21,9 +21,10 @@
 //          https://stackoverflow.com/questions/62616855/how-to-specify-an-application-icon-for-c-visual-studio-2019
 //          https://stackoverflow.com/questions/8788057/how-to-initialize-and-print-a-stdwstring
 //          https://stackoverflow.com/questions/4053918/how-to-portably-write-stdwstring-to-file
+//          https://stackoverflow.com/questions/3884124/convert-a-console-app-to-a-windows-app
+//          https://stackoverflow.com/questions/495795/how-do-i-use-a-third-party-dll-file-in-visual-studio-c
 
 // Includes
-#include <iostream> // For std::wcout
 #include <vector> // For std::vector
 #include <cstdio> // For I/O
 #include <windows.h> // For winapi
@@ -47,7 +48,7 @@ using WindowsKillLibrary::SIGNAL_TYPE_CTRL_BREAK;
 int displayMessageBox(const bool& anyProcessesFound, const bool& processKillFailure); // Display winapi MessageBox based on existence and/or success of process termination
 
 // Main
-int main(int argc, char **argv) {
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 
     // Vector to hold process names to be iterated through and killed
     std::vector<std::wstring> processesToKill = { L"OVRServiceLauncher.exe", L"OVRRedir.exe", L"OVRServer_x64.exe" }; // Formatted as wstring for use with szExeFile
@@ -95,23 +96,20 @@ int main(int argc, char **argv) {
                     // Try to terminate the process by PID
                     try {
                         
-                        // Log status to command-line and "lastRun.log" file
-                        std::wcout << "INFO: Found process matching " << processesToKill.at(numProcess).c_str() << " with PID " << processEntry.th32ProcessID << "." << std::endl;
+                        // Log status to "lastRun.log" file
                         lastRunLog << "INFO: Found process matching " << processesToKill.at(numProcess).c_str() << " with PID " << processEntry.th32ProcessID << "." << std::endl;
 
                         // Use windows-kill-library function sendSignal() to send POSIX-like exit signal
                         sendSignal(processEntry.th32ProcessID, SIGNAL_TYPE_CTRL_C);
 
-                        // Log status to command-line and "lastRun.log" file
-                        std::wcout << "INFO: Terminated process with PID " << processEntry.th32ProcessID << "." << std::endl;
+                        // Log status to "lastRun.log" file
                         lastRunLog << "INFO: Terminated process with PID " << processEntry.th32ProcessID << "." << std::endl;
                         
                     } catch (const std::invalid_argument &exception) { // Catch error when an argument for sendSignal() is invalid
                         
                         if (strcmp(exception.what(), "ESRCH") == 0) { // If PID does not exist
                             
-                            // Log status to command-line and "lastRun.log" file
-                            std::wcout << "ERROR: Invalid PID; specified process ID does not exist." << std::endl;
+                            // Log status to "lastRun.log" file
                             lastRunLog << "ERROR: Invalid PID; specified process ID does not exist." << std::endl;
 
                             // Set processKillFailure status to true
@@ -119,8 +117,7 @@ int main(int argc, char **argv) {
 
                         } else if (strcmp(exception.what(), "EINVAL") == 0) { // If signal type is invalid
                             
-                            // Log status to command-line and "lastRun.log" file
-                            std::wcout << "ERROR: Invalid windows-kill signal type." << std::endl;
+                            // Log status to "lastRun.log" file
                             lastRunLog << "ERROR: Invalid windows-kill signal type." << std::endl;
                         
                             // Set processKillFailure status to true
@@ -128,8 +125,7 @@ int main(int argc, char **argv) {
 
                         } else { // All other errors
                             
-                            // Log status to command-line and "lastRun.log" file
-                            std::wcout << "ERROR: InvalidArgument: windows-kill-library:" << exception.what() << std::endl;
+                            // Log status to "lastRun.log" file
                             lastRunLog << "ERROR: InvalidArgument: windows-kill-library:" << exception.what() << std::endl;
                         
                             // Set processKillFailure status to true
@@ -139,8 +135,7 @@ int main(int argc, char **argv) {
 
                     } catch (const std::system_error &exception) { // Catch system errors
                         
-                        // Log status to command-line and "lastRun.log" file
-                        std::wcout << "ERROR: SystemError " << exception.code() << ": " << exception.what() << std::endl;
+                        // Log status to "lastRun.log" file
                         lastRunLog << "ERROR: SystemError " << exception.code() << ": " << exception.what() << std::endl;
                     
                         // Set processKillFailure status to true
@@ -150,8 +145,7 @@ int main(int argc, char **argv) {
                         
                         if (strcmp(exception.what(), "EPERM") == 0) { // If permissions are not elevated (somehow)
                             
-                            // Log status to command-line and "lastRun.log" file
-                            std::wcout << "ERROR: Missing required permissions to send specified signal." << std::endl;
+                            // Log status to "lastRun.log" file
                             lastRunLog << "ERROR: Missing required permissions to send specified signal." << std::endl;
                         
                             // Set processKillFailure status to true
@@ -159,8 +153,7 @@ int main(int argc, char **argv) {
 
                         } else { // All other errors
                             
-                            // Log status to command-line and "lastRun.log" file
-                            std::wcout << "ERROR: RuntimeError: windows-kill-library:" << exception.what() << std::endl;
+                            // Log status to "lastRun.log" file
                             lastRunLog << "ERROR: RuntimeError: windows-kill-library:" << exception.what() << std::endl;
                         
                             // Set processKillFailure status to true
@@ -170,8 +163,7 @@ int main(int argc, char **argv) {
                     
                     } catch (const std::exception &exception) { // Catch all other exceptions
                         
-                        // Log status to command-line and "lastRun.log" file
-                        std::wcout << "ERROR: windows-kill-library:" << exception.what() << std::endl;
+                        // Log status to "lastRun.log" file
                         lastRunLog << "ERROR: windows-kill-library:" << exception.what() << std::endl;
                     
                         // Set processKillFailure status to true
@@ -194,8 +186,7 @@ int main(int argc, char **argv) {
         // If a process has not been found matching the specified name
         if (!(processFound)) {
 
-            // Log status to command-line and "lastRun.log" file
-            std::wcout << "INFO: No process found matching " << processesToKill.at(numProcess).c_str() << "." << std::endl;
+            // Log status to "lastRun.log" file
             lastRunLog << "INFO: No process found matching " << processesToKill.at(numProcess).c_str() << "." << std::endl;
 
         }

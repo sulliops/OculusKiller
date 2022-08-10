@@ -52,7 +52,7 @@ END
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDI_ICON1               ICON                    "C:\\Users\\Oculus Killer\\Downloads\\Oculus Killer.ico"
+IDI_ICON1               ICON                    "Oculus Killer.ico"
 
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
