@@ -1,6 +1,6 @@
 # Oculus Killer
 
-### Version 3.0.0
+### Version 3.1.0
 
 *Created by Owen Sullivan, [sulliops.co](https://sulliops.co)*
 
@@ -14,12 +14,12 @@ Oculus Killer is a program written in C++ designed to kill all Oculus Client pro
 
 #### Using Oculus Killer:
 
-Version 3.0.0 uses a standard application installer from [Inno Setup](https://jrsoftware.org/isinfo.php), but the pre-compiled release can also be downloaded and extracted to any valid directory for use. You can build the executable yourself (see **Compiling Oculus Killer** below), or download the latest release from the repository's [Releases](https://github.com/sulliops/OculusKiller/releases) page.
+Version 3.1.0 uses a standard application installer from [Inno Setup](https://jrsoftware.org/isinfo.php), but the pre-compiled release can also be downloaded and extracted to any valid directory for use. You can build the executable yourself (see **Compiling Oculus Killer** below), or download the latest release from the repository's [Releases](https://github.com/sulliops/OculusKiller/releases) page.
 
 ----
 
 #### Compiling Oculus Killer
 
-v3.0.0 is compiled using Visual Studio 2022, and cannot be compiled outside of Visual Studio due to limitations with the [windows-kill-library](https://github.com/ElyDotDev/windows-kill/tree/master/windows-kill-library) dependency.
+v3.1.0 is compiled using Visual Studio 2022, and cannot be compiled outside of Visual Studio due to limitations with the [windows-kill-library](https://github.com/ElyDotDev/windows-kill/tree/master/windows-kill-library) dependency.
 
 The solution (.sln file) can be opened in Visual Studio, and Oculus Killer can be built against the Release x64 target.
