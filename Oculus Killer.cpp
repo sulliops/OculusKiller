@@ -45,7 +45,7 @@ using WindowsKillLibrary::SIGNAL_TYPE_CTRL_C;
 using WindowsKillLibrary::SIGNAL_TYPE_CTRL_BREAK;
 
 // Function prototypes
-int displayMessageBox(const bool& anyProcessesFound, const bool& processKillFailure); // Display winapi MessageBox based on existence and/or success of process termination
+int displayMessageBox(const bool &anyProcessesFound, const bool &processKillFailure); // Display winapi MessageBox based on existence and/or success of process termination
 
 // Main
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
@@ -201,8 +201,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
             displayMessageBox(true, true);
 
-        }
-        else { // If all processes terminated successfully
+        } else { // If all processes terminated successfully
 
             displayMessageBox(true, false);
 
@@ -231,9 +230,9 @@ int displayMessageBox(const bool &anyProcessesFound, const bool &processKillFail
 
             switch (msgboxID) {
 
-            case IDOK:
-                PostQuitMessage(0); // Close program when "OK" button is clicked
-                return 0;
+                case IDOK:
+                    PostQuitMessage(0); // Close program when "OK" button is clicked
+                    return 0;
 
             }
 
@@ -246,9 +245,9 @@ int displayMessageBox(const bool &anyProcessesFound, const bool &processKillFail
 
             switch (msgboxID) {
 
-            case IDOK:
-                PostQuitMessage(0); // Close program when "OK" button is clicked
-                return 0;
+                case IDOK:
+                    PostQuitMessage(0); // Close program when "OK" button is clicked
+                    return 0;
 
             }
 
@@ -263,9 +262,9 @@ int displayMessageBox(const bool &anyProcessesFound, const bool &processKillFail
 
         switch (msgboxID) {
 
-        case IDOK:
-            PostQuitMessage(0); // Close program when "OK" button is clicked
-            return 0;
+            case IDOK:
+                PostQuitMessage(0); // Close program when "OK" button is clicked
+                return 0;
 
         }
 
