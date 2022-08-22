@@ -18,7 +18,7 @@ Version 3.1.1 uses a standard application installer from [Inno Setup](https://jr
 
 Then, simply launch Oculus Killer whenever you want to completely kill Oculus Software. Oculus Killer will not try to kill Oculus Software processes if they are not already running, and will instead alert you that the process(es) were not found.
 
-**Note:** Oculus Killer is intended for use only on systems which support x64-based programs. The program *may* work on x86 systems, but this is not intended as Oculus Software requires 64-bit anyway.
+**Note:** Oculus Killer is intended for use only on systems which support x64-based programs. The program is built against a 64-bit release target, and therefore will not run on 32-bit systems.
 
 ----
 
