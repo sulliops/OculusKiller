@@ -2,7 +2,7 @@
 
 ### Version 3.1.1
 
-*Created by Owen Sullivan, [sulliops.co](https://sulliops.co)*
+*Created by Owen Sullivan, [sulliops.dev](https://sulliops.dev)*
 
 ----
 
